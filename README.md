@@ -1,12 +1,11 @@
 <h1>Social Media API Documentation</h1>
+deploy link:-https://social-czg8.onrender.com/
 <br>
 <br>
-<br>
-<br>
+
 <h2>Getting Started</h2>
 <br>
-<br>
-<br>
+
 <h3>To get started with the Social Media API, follow the steps below:</h3>
 User Management
 POST /register: Register a new user.
