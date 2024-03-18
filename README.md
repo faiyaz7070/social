@@ -1,85 +1,84 @@
 <h1>Social Media API Documentation</h1>
 deploy link:-https://social-czg8.onrender.com/
-<br>
-<br>
 
-<h2>Getting Started</h2>
-<br>
 
-<h3>To get started with the Social Media API, follow the steps below:</h3>
-User Management
-POST /register: Register a new user.
-POST /login: Login user.
-GET /users: Get All Users
-POST /users/blacklist/:userId: Blacklist a user.
-POST /users/unblacklist/:userId: Remove a user from the blacklist.
-Post Management
-POST /post: Create a new post.
-PATCH /updatePost: Update an existing post.
-DELETE /deletePost/:postId: Delete a post.
-Following/Unfollowing Users
-POST /follow/:userId: Follow a user.
-POST /unfollow/:userId: Unfollow a user.
-Feed Retrieval
-GET /feed: Retrieve posts from users you follow.
-GraphQL
-To explore the API using GraphQL, you can access the GraphQL Playground at the following endpoint:
+## Table of Contents
 
-/graphql
+- [Installation](#installation)
+- [Usage](#usage)
+- [Endpoints](#endpoints)
+- [Dummy Data for Testing](#dummy-data-for-testing)
+- [Contributing](#contributing)
+- [License](#license)
 
-Testing the API
-You can test the API endpoints using tools like Postman or by sending requests directly from your application. Here's how you can test the endpoints:
+## Installation
 
-Register a new user:
+1. Clone the repository:
+- git clone <repository_url>
+2. Install dependencies:
+  -npm install
+3. Set up environment variables:
+- Create a `.env` file in the root directory.
+- Add the required environment variables (e.g., database connection string, secret keys).
 
-  POST http://localhost:8080/register
-  Content-Type: application/json
+## Usage
 
-  {
-    "username": "exampleuser",
-    "email": "user@example.com",
-    "password": "password123"
-  }
-Login user:
+1. Start the server:
+ -npm run server
+2. Open Postman or any API testing tool.
+3. Send requests to the provided endpoints (see [Endpoints](#endpoints)).
 
-    POST http://localhost:8080/login
-    Content-Type: application/json
+## Endpoints
 
-    {
-      "email": "user@example.com",
-      "password": "password123"
-    }
-      POST http://localhost:8080/post
-  Authorization: Bearer &lt;token&gt;
-  Content-Type: application/json
+- **POST /auth/register**: Register a new user.
+- **POST /auth/login**: Login as a user and receive a JWT token.
+- **POST /post/post**: Create a new post.
+- **PATCH /post/updatePost**: Update an existing post.
+- **DELETE/post /deletePost/:postId**: Delete a post by ID.
+- **POST /follower/follow/:userId**: Follow a user.
+- **POST /follower/unfollow/:userId**: Unfollow a user.
+- **GET  /follower/feed**: Retrieve the user's feed.
 
-  {
-    "content": "This is a new post."
-  }
-Update an existing post:
+## Dummy Data for Testing
 
-PATCH http://localhost:8080/updatePost
-    Authorization: Bearer &lt;token&gt;
-    Content-Type: application/json
+### Registration (POST  /auth/register)
+```json
+{
+"username": "testuser",
+"email": "testuser@example.com",
+"password": "password123"
+}
+###Login (POST /auth/login)
+{
+  "email": "testuser@example.com",
+  "password": "password123"
+}
 
-    {
-      "postId": "123456",
-      "content": "Updated content for the post."
-    }
-Delete a post:
+**POST /post/post**: Create a new post.
+{
+  "content": "This is a test post content."
+}
+- **PATCH /post/updatePost**: Update an existing post.
+{
+  "postId": "6123456789abcdef01234567",
+  "content": "Updated test post content."
+}
+Delete Post (DELETE /deletePost/:postId)
+Replace :postId with the ID of the post you want to delete.
 
-  DELETE http://localhost:8080/deletePost/:postId
-  Authorization: Bearer <token>
-  Content-Type: application/json
+Follow User (POST /follow/:userId)
+Replace :userId with the ID of the user you want to follow.
 
-  {
-    "postId": "12345"
-  }
-Follow a user:
+Unfollow User (POST /unfollow/:userId)
+Replace :userId with the ID of the user you want to unfollow.
 
-POST http://localhost:8080/follow/:userId
-        Authorization: Bearer &lt;token&gt;
-Unfollow a user:
+Get Feed (GET /feed)
+No data required.
 
-POST http://localhost:8080/unfollow/:userId
-Authorization: Bearer &lt;token&gt;
+Contributing
+Contributions are welcome! Feel free to open issues and pull requests.
+
+
+
+
+
